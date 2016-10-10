@@ -1,4 +1,4 @@
 
 function()
-	return page.location.capture("/@http/http://www.baidu.com");
+	return kk.http("http://www.baidu.com/");
 end

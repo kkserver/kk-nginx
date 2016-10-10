@@ -1,9 +1,13 @@
-{#function() 
+########
 
 
-end#}
-<html>
-	<head>
-		<title>Demo</title>
-	</head>
-</html>
+{#
+function() 
+	local resp = kk.http("http://www.baidu.com/");
+	return kk.json.encode(resp)
+end
+#}
+
+
+#################
+
