@@ -17,6 +17,10 @@ RUN ls /var/log/nginx
 
 RUN mkdir /run/nginx
 
+RUN mkdir /etc/nginx/api.d
+
+VOLUME /etc/nginx/api.d
+
 WORKDIR /etc/nginx
 
 COPY ./conf.d conf.d
