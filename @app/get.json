@@ -1,4 +1,4 @@
 
 function()
-	return kk.http("http://www.baidu.com/");
+	return kk.http.get("http://www.baidu.com/");
 end

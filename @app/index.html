@@ -3,8 +3,10 @@
 
 {#
 function() 
-	local resp = kk.http("http://www.baidu.com/");
-	return kk.json.encode(resp)
+	local resp = kk.http.get("http://www.baidu.com/");
+	if resp.status == 200 then
+		return resp.body
+	end
 end
 #}
 
