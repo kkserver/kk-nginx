@@ -20,7 +20,11 @@ return function(page,__text)
 			v = v .. string.sub(__text,i,b -1)
 		end
 
-		v = v .. code(page,text)
+		local r = code(page,text)
+
+		if r ~= nil then
+			v = v .. r
+		end
 
 		i = e + 1
 
