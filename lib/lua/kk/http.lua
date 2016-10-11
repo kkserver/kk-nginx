@@ -2,6 +2,7 @@
 local U = require('./kk/url')
 local string = require('string')
 local http = {}
+local json = require('./kk/json')
 
 http.capture = function(url,options) 
 	
@@ -98,8 +99,11 @@ http.json = function(url,data)
 	
 	local body = "{}"
 
-	if type(data) == "table" and table.getn(data) > 0 then
-		body = kk.json.encode(data)
+	if type(data) == "table" then
+		for _,_ in pairs(data) do
+			body = kk.json.encode(data)
+			break
+		end
 	end
 
 	local headers = ngx.req.get_headers()
@@ -107,7 +111,7 @@ http.json = function(url,data)
 	local userAgent = headers["User-Agent"]
 	local referer = headers["Referer"]
 
-	local resp = kk.http.post(url, { 
+	local resp = http.post(url, { 
 			headers = { 
 				["Content-Type"] = "text/json", 
 				["X-CLIENT-IP"] = ngx.var.remote_addr ,
@@ -125,7 +129,7 @@ http.json = function(url,data)
 			end
 		end
 		if type(resp.body) == 'string' and resp.body ~= "" then
-			return kk.json.decode(resp.body), resp.status
+			return json.decode(resp.body), resp.status
 		else
 			return nil, resp.status
 		end

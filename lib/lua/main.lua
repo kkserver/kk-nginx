@@ -1,12 +1,11 @@
 
 local kk = require("./kk");
 
-local io = require("io");
+local table = require("table")
 
-local fd = io.open("./app/index.lhtml","r");
+local data = {jobId="2"}
 
-local page = {title = 'title' };
-
-print(kk.page(page,fd:read("*a")));
-
-fd:close();
+for _,_ in pairs(data) do
+	print("ok")
+	break
+end
