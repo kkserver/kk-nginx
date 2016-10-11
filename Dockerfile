@@ -27,6 +27,8 @@ COPY ./nginx.conf nginx.conf
 
 COPY ./@app /@app
 
+COPY ./static /static
+
 VOLUME /@app
 
 EXPOSE 80 443
