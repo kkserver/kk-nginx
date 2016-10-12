@@ -21,6 +21,8 @@ WORKDIR /etc/nginx
 
 COPY ./conf.d conf.d
 
+COPY ./alias.d alias.d
+
 COPY ./lib/lua /lib/lua
 
 COPY ./nginx.conf nginx.conf
