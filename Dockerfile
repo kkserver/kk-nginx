@@ -31,12 +31,6 @@ COPY ./@app /@app
 
 COPY ./static /static
 
-VOLUME /@app
-
-VOLUME /static
-
-VOLUME /lib/lua
-
 EXPOSE 80 443
 
 CMD ["nginx", "-g", "daemon off;"]
