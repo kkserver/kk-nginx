@@ -17,6 +17,8 @@ RUN ls /var/log/nginx
 
 RUN mkdir /run/nginx
 
+RUN mkdir /etc/nginx/extra.d
+
 WORKDIR /etc/nginx
 
 COPY ./conf.d conf.d
@@ -30,6 +32,8 @@ COPY ./nginx.conf nginx.conf
 COPY ./@app /@app
 
 COPY ./static /static
+
+VOLUME /etc/nginx/extra.d
 
 EXPOSE 80 443
 
